@@ -46,7 +46,7 @@
         var c = getQueryVariable("c");
         var t = getQueryVariable("t");
         if (c) {
-          document.body.style.backgroundColor = c;
+          document.body.style.backgroundColor = htmlEncode(c);
         }
         if (t) {
           var text = document.createElement("div");
@@ -56,7 +56,7 @@
         } else {
           var text = document.createElement("div");
           text.id = "usage";
-          text.innerHTML = "You can use two query string parameters: 'c' to set the background color of this page and 't' to set this text.<br>Useful for testing screen layouts.";
+          text.innerHTML = "You can use two query string parameters:<br> * 'c' to set the background color of this page<br> * 't' to set this text.<br><br>Useful for testing screen layouts.";
           document.body.appendChild(text);
         }
       }
