@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #text {
+        text-align: center;
+        font-size: 96px;
+        color: white;
+        text-shadow: 5px 5px black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }      
+    </style>
+    <script>
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+        }
+        return false;
+      }
+      
+      window.onload = function() {
+        var c = getQueryVariable("c");
+        var t = getQueryVariable("t");
+        if (c) {
+          document.body.style.backgroundColor = c;
+        }
+        if (t) {
+          var text = document.createElement("div");
+          text.id = "text";
+          text.innerHTML = t;
+          document.body.appendChild(text);
+        }
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
