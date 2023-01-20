@@ -12,8 +12,24 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }      
+      #usage {
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        text-shadow: 5px 5px black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }            
     </style>
     <script>
+      function htmlEncode(str){
+          return String(str).replace(/[^\w. ]/gi, function(c){
+              return '&#'+c.charCodeAt(0)+';';
+          });
+      }
+      
       function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
@@ -36,11 +52,11 @@
           var text = document.createElement("div");
           text.id = "text";
           text.innerHTML = t;
-          document.body.appendChild(text);
+          document.body.appendChild(htmlEncode(text));
         } else {
           var text = document.createElement("div");
           text.id = "usage";
-          text.innerHTML = "You can use two query string parameters: 'c' to set the background color of this page and 't' to set the centered text.<br>Useful for testing screen layouts.";
+          text.innerHTML = "You can use two query string parameters: 'c' to set the background color of this page and 't' to set this text.<br>Useful for testing screen layouts.";
           document.body.appendChild(text);
         }
       }
