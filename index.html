@@ -37,6 +37,11 @@
           text.id = "text";
           text.innerHTML = t;
           document.body.appendChild(text);
+        } else {
+          var text = document.createElement("div");
+          text.id = "usage";
+          text.innerHTML = "You can use two query string parameters: 'c' to set the background color of this page and 't' to set the centered text.<br>Useful for testing screen layouts.";
+          document.body.appendChild(text);
         }
       }
     </script>
